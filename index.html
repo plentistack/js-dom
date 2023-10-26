@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Static Template</title>
-  </head>
-  <body>
-    <h1>This is a static template, there is no bundler or bundling involved!</h1>
-  </body>
+<html>
+<head>
+    <title>DOM Access Example</title>
+</head>
+<body>
+    <h1 id="heading">Welcome to the DOM Access Example</h1>
+    <p class="content">This is a simple paragraph.</p>
+    <ul>
+        <li class="list-item">Item 1</li>
+        <li class="list-item">Item 2</li>
+        <li class="list-item">Item 3</li>
+    </ul>
+
+    <script>
+        // Accessing the DOM using getElementById
+        var heading = document.getElementById("heading");
+        heading.textContent = "Hello, DOM!";
+
+        // Accessing elements by class name
+        var listItems = document.getElementsByClassName("list-item");
+        for (var i = 0; i < listItems.length; i++) {
+            listItems[i].style.fontWeight = "bold";
+        }
+
+        // Accessing elements by tag name
+        var paragraphs = document.getElementsByTagName("p");
+        for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.color = "blue";
+        }
+
+        // Accessing elements using CSS selectors
+        var contentParagraph = document.querySelector(".content");
+        contentParagraph.textContent = "This paragraph was modified using querySelector.";
+
+        var allListItems = document.querySelectorAll("li");
+        var colors = ['yellow', 'green', 'orange']
+        allListItems.forEach(function (item, ind) {
+            item.style.backgroundColor = colors[ind];
+        });
+    </script>
+</body>
 </html>
