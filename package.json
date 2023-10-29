@@ -1,7 +1,7 @@
 {
-  "name": "js-dom-02",
+  "name": "02-js-dom-element-modification",
   "version": "1.0.0",
-  "description": "",
+  "description": "DOM Element Modification for Dynamic Web Experiences",
   "main": "index.html",
   "scripts": {
     "start": "serve",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codesandbox-app/static-template.git"
+    "url": "https://github.com/plentistack/js-dom/tree/02-js-dom-element-modification"
   },
   "keywords": [],
   "author": "Ives van Hoorne",
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/codesandbox-app/static-template/issues"
   },
-  "homepage": "https://github.com/codesandbox-app/static-template#readme",
+  "homepage": "https://github.com/plentistack/js-dom/tree/02-js-dom-element-modification#readme",
   "devDependencies": {
     "serve": "^11.2.0"
   }
