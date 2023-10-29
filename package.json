@@ -1,7 +1,7 @@
 {
-  "name": "js-dom-01",
+  "name": "01-js-accessing-dom",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Guide to Understanding and Accessing the DOM",
   "main": "index.html",
   "scripts": {
     "start": "serve",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codesandbox-app/static-template.git"
+    "url": "https://github.com/plentistack/js-dom/tree/01-js-accessing-dom"
   },
   "keywords": [],
   "author": "Ives van Hoorne",
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/codesandbox-app/static-template/issues"
   },
-  "homepage": "https://github.com/codesandbox-app/static-template#readme",
+  "homepage": "https://github.com/plentistack/js-dom/tree/01-js-accessing-dom#readme",
   "devDependencies": {
     "serve": "^11.2.0"
   }
