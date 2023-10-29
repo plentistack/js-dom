@@ -1,22 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>DOM Element Modification Example</title>
+    <title>Creating and Appending Elements</title>
+    <style>
+        /* Add some CSS styles for demonstration */
+        .container {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div id="content">
-        <h1>DOM Element Modification Example</h1>
-        <p id="myElement">Initial Text Content</p>
-        <button id="changeTextButton">Change Text</button>
-        <button id="changeHTMLButton">Change HTML</button>
-        <button id="appendElementButton">Append New Element</button>
-        <button id="removeElementButton">Remove Element</button>
-        <img id="myImage" src="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp" alt="Initial Image">
-        <a id="myLink" href="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp">Example Link</a>
+    <h1>Dynamic Element Manipulation</h1>
+    <div class="container">
+        <h2>Create and Append Elements</h2>
+        <button id="addParagraphBtn">Add New Paragraph</button>
+        <button id="addTextNodeBtn">Add Text Node</button>
+        <div id="parent1">
+            <!-- New elements will be appended here -->
+        </div>
+        <h2>Insert Elements</h2>
+        <button id="insertBeforeBtn">Insert Before</button>
+        <div id="parent2">
+            <!-- Reference element for inserting -->
+            <p id="referenceElement">Reference element for inserting</p>
+        </div>
+        <h2>Remove Elements</h2>
+        <button id="removeElementBtn">Remove Element</button>
+        <div id="parent3">
+            <!-- Element to be removed -->
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        // JavaScript for creating and manipulating elements
+
+        function createParagraph() {
+            var paragraph = document.createElement('p');
+            paragraph.textContent = "This is a dynamically created paragraph.";
+            return paragraph;
+        }
+
+        function createTextNode() {
+            var textNode = document.createTextNode("This is some dynamically generated text.");
+            return textNode;
+        }
+
+        function appendNewParagraph() {
+            var parent = document.getElementById('parent1');
+            var newParagraph = createParagraph();
+            parent.appendChild(newParagraph);
+        }
+
+        function insertParagraphBefore() {
+            var parent = document.getElementById('parent2');
+            var newParagraph = createParagraph();
+            var referenceElement = document.getElementById('referenceElement');
+            parent.insertBefore(newParagraph, referenceElement);
+        }
+
+        function removeList() {
+            var parent = document.getElementById('parent3');
+            var removableElement = document.querySelector('#parent3 ul');
+            if (removableElement) {
+                parent.removeChild(removableElement);
+            }
+        }
+
+        document.getElementById('addParagraphBtn').addEventListener('click', appendNewParagraph);
+        document.getElementById('addTextNodeBtn').addEventListener('click', function () {
+            var parent = document.getElementById('parent1');
+            var textNode = createTextNode();
+            parent.appendChild(textNode);
+        });
+        document.getElementById('insertBeforeBtn').addEventListener('click', insertParagraphBefore);
+        document.getElementById('removeElementBtn').addEventListener('click', removeList);
+    </script>
 </body>
 </html>
