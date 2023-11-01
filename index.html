@@ -3,20 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>DOM Element Modification Example</title>
+    <title>Interactive Button</title>
+    <style>
+        /* Add some basic styling for demonstration */
+        button {
+            background-color: lightblue;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="content">
-        <h1>DOM Element Modification Example</h1>
-        <p id="myElement">Initial Text Content</p>
-        <button id="changeTextButton">Change Text</button>
-        <button id="changeHTMLButton">Change HTML</button>
-        <button id="appendElementButton">Append New Element</button>
-        <button id="removeElementButton">Remove Element</button>
-        <img id="myImage" src="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp" alt="Initial Image">
-        <a id="myLink" href="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp">Example Link</a>
-    </div>
-    <script src="script.js"></script>
+    <h1>Event Handling in DOM</h1>
+
+    <p>Click the "Click Me" button, and watch what happens! It will say "Button clicked!". Try it as many times as you want.</p>
+    <button id="myButton">Click Me</button>
+
+    <p id="resultText">Try clicking the button!</p>
+
+    <p>But if you ever want to stop the messages, click the "Remove Event Listener" button. It will prevent the "Click Me" button to respond to the click event.</p>
+    <button id="removeListenerButton">Remove Event Listener</button>
+
+    <script>
+        // Get the button element by its ID
+        var button = document.getElementById('myButton');
+        var removeListenerButton = document.getElementById('removeListenerButton');
+        var resultText = document.getElementById('resultText');
+
+        // Function to run when the button is clicked
+        function buttonClick(event) {
+            // Change the text below the button
+            resultText.textContent = "Button clicked! 🎉";
+
+            // Get the type of the event (click)
+            resultText.textContent += " Event Type: " + event.type;
+
+            // Get the target element (the button)
+            resultText.textContent += " Target Element: " + event.target.tagName;
+
+            // Get the element to which the event listener is attached (also the button)
+            resultText.textContent += " Current Element: " + event.currentTarget.tagName;
+
+            // Make the button do a little dance
+            button.style.transform = "scale(1.1)";
+
+            // Prevent the button from doing its default action
+            event.preventDefault();
+
+        }
+        
+        // Function to remove the event listener
+        function removeButtonClick() {
+            button.removeEventListener('click', buttonClick);
+            removeListenerButton.disabled = true;
+            resultText.textContent += " Click event listener removed.";
+        }
+        
+        // Add an event listener for the button click
+        button.addEventListener('click', buttonClick);
+        // // Add an event listener to the "Remove Event Listener" button
+        removeListenerButton.addEventListener('click', removeButtonClick);
+    </script>
 </body>
 </html>
