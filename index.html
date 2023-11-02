@@ -1,22 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>DOM Element Modification Example</title>
+    <title>Interactive DOM Traversal Example</title>
+    <style>
+        /* CSS styles for demonstration purposes */
+        .parent {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .child {
+            border: 1px solid #333;
+            margin: 5px;
+            padding: 5px;
+        }
+        .button {
+            margin: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+        .active-button {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <div id="content">
-        <h1>DOM Element Modification Example</h1>
-        <p id="myElement">Initial Text Content</p>
-        <button id="changeTextButton">Change Text</button>
-        <button id="changeHTMLButton">Change HTML</button>
-        <button id="appendElementButton">Append New Element</button>
-        <button id="removeElementButton">Remove Element</button>
-        <img id="myImage" src="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp" alt="Initial Image">
-        <a id="myLink" href="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp">Example Link</a>
+    <div class="parent" id="parentElement">
+        <div class="child" id="childElement1">Child 1</div>
+        <div class="child" id="childElement2">Child 2</div>
+        <div class="child" id="childElement3">Child 3</div>
     </div>
-    <script src="script.js"></script>
+    
+    <button id="showParent" class="button">Show Parent</button>
+    <button id="showChildren" class="button">Show Children</button>
+    <button id="showNextSibling" class="button">Show Next Sibling</button>
+    <button id="showSpecificElement" class="button">Show Specific Element</button>
+    
+    <div id="output" style="margin-top: 10px;"></div>
+
+    <script>
+        // Add event listeners to the buttons
+        document.getElementById('showParent').addEventListener('click', function() {
+            var childElement = document.getElementById('childElement1');
+            var parentElement = childElement.parentNode;
+            document.getElementById('output').innerHTML = 'Parent Element: ' + parentElement.id;
+            setButtonActive('showParent');
+        });
+
+        document.getElementById('showChildren').addEventListener('click', function() {
+            var parentElement = document.getElementById('parentElement');
+            var childElements = parentElement.children;
+            var childIds = [];
+            for (var i = 0; i < childElements.length; i++) {
+                childIds.push(childElements[i].id);
+            }
+            document.getElementById('output').innerHTML = 'Child Elements: ' + childIds.join(', ');
+            setButtonActive('showChildren');
+        });
+
+        document.getElementById('showNextSibling').addEventListener('click', function() {
+            var currentElement = document.getElementById('childElement1');
+            var nextSibling = currentElement.nextElementSibling;
+            if (nextSibling) {
+                document.getElementById('output').innerHTML = 'Next Sibling: ' + nextSibling.id;
+            } else {
+                document.getElementById('output').innerHTML = 'No Next Sibling';
+            }
+            setButtonActive('showNextSibling');
+        });
+
+        document.getElementById('showSpecificElement').addEventListener('click', function() {
+            var specificElement = document.getElementById('childElement3');
+            document.getElementById('output').innerHTML = 'Specific Element: ' + specificElement.id;
+            setButtonActive('showSpecificElement');
+        });
+
+        // Function to set the active button styling
+        function setButtonActive(buttonId) {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach((button) => {
+                button.classList.remove('active-button');
+            });
+            document.getElementById(buttonId).classList.add('active-button');
+        }
+    </script>
 </body>
 </html>
