@@ -3,20 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Node Cloning and Replacement</title>
     <link rel="stylesheet" href="styles.css">
-    <title>DOM Element Modification Example</title>
 </head>
 <body>
-    <div id="content">
-        <h1>DOM Element Modification Example</h1>
-        <p id="myElement">Initial Text Content</p>
-        <button id="changeTextButton">Change Text</button>
-        <button id="changeHTMLButton">Change HTML</button>
-        <button id="appendElementButton">Append New Element</button>
-        <button id="removeElementButton">Remove Element</button>
-        <img id="myImage" src="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp" alt="Initial Image">
-        <a id="myLink" href="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp">Example Link</a>
-    </div>
+    <h1>Cloning and Replacing Nodes in DOM</h1>
+
+    <!-- Cloning Nodes Section -->
+    <section id="cloningSection">
+        <h2>Cloning Nodes</h2>
+        <div id="originalElement" class="element">
+            <h3>Original Element</h3>
+            <p>This is the original content.</p>
+        </div>
+        <button id="cloneButton" class="action-button">Clone Original Element</button>
+    </section>
+
+    <!-- Replacing Nodes Section -->
+    <section id="replacingSection">
+        <h2>Replacing Nodes</h2>
+        <div id="parentElement" class="element">
+            <h3>Parent Element</h3>
+            <p>This is the old content.</p>
+        </div>
+        <button id="replaceButton" class="action-button">Replace with New Element</button>
+    </section>
+
+    <!-- Combining Advanced Techniques Section -->
+    <section id="combiningSection">
+        <h2>Clone, make change and replace</h2>
+        <div id="advancedElement" class="element">
+            <h3>Original Element</h3>
+            <p class="content">This is the original content.</p>
+        </div>
+        <button id="combineButton" class="action-button">Clone, Modify, and Replace</button>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
