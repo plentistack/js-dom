@@ -3,20 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>DOM Element Modification Example</title>
+    <title>Form Handling Example</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <div id="content">
-        <h1>DOM Element Modification Example</h1>
-        <p id="myElement">Initial Text Content</p>
-        <button id="changeTextButton">Change Text</button>
-        <button id="changeHTMLButton">Change HTML</button>
-        <button id="appendElementButton">Append New Element</button>
-        <button id="removeElementButton">Remove Element</button>
-        <img id="myImage" src="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp" alt="Initial Image">
-        <a id="myLink" href="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp">Example Link</a>
-    </div>
-    <script src="script.js"></script>
+
+    <h1>Form Handling Example</h1>
+
+    <form id="myForm">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+        <label for="country">Country:</label>
+        <select name="country" id="country">
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Add your JavaScript code here
+        var myForm = document.getElementById('myForm');
+
+        myForm.addEventListener('submit', function(event) {
+            if (validateForm()) {
+                // Display success alert with username, email, and country
+                var username = myForm.elements['username'].value;
+                var email = myForm.elements['email'].value;
+                var country = myForm.elements['country'].value;
+                alert('Form submitted successfully!\n\nUsername: ' + username + '\nEmail: ' + email + '\nCountry: ' + country);
+            } else {
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+
+        function validateForm() {
+            var username = myForm.elements['username'].value;
+            if (username.length < 4) {
+                alert('Username must be at least 4 characters.');
+                return false;
+            }
+
+            // Additional custom validation logic here
+
+            return true; // If all validation checks pass
+        }
+    </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
-  "name": "js-dom-02",
+  "name": "07-js-working-with-forms",
   "version": "1.0.0",
-  "description": "",
+  "description": "Working with Forms: Access, Validate and Submit Form",
   "main": "index.html",
   "scripts": {
     "start": "serve",
