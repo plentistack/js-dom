@@ -1,43 +1,37 @@
-// Get elements by their IDs
-var textElement = document.getElementById("myElement");
-var changeTextButton = document.getElementById("changeTextButton");
-var changeHTMLButton = document.getElementById("changeHTMLButton");
-var appendElementButton = document.getElementById("appendElementButton");
-var removeElementButton = document.getElementById("removeElementButton");
-var imgElement = document.getElementById("myImage");
-var linkElement = document.getElementById("myLink");
+// Store data in Local Storage
+function storeLocalData() {
+  var username = document.getElementById("localDataInput").value;
+  localStorage.setItem("username", username);
+  alert("Data stored in Local Storage: username=" + username);
+}
 
-// Change text content when the button is clicked
-changeTextButton.addEventListener("click", function () {
-  textElement.textContent = "New Text Content";
-});
+// Retrieve data from Local Storage
+function retrieveLocalData() {
+  var storedUsername = localStorage.getItem("username");
+  alert("Retrieved data from Local Storage: username=" + storedUsername);
+}
 
-// Change HTML content when the button is clicked
-changeHTMLButton.addEventListener("click", function () {
-  textElement.innerHTML = "<strong>New HTML Content</strong>";
-});
+// Remove data from Local Storage
+function removeLocalData() {
+  localStorage.removeItem("username");
+  alert("Data removed from Local Storage: username");
+}
 
-// Append a new paragraph element
-appendElementButton.addEventListener("click", function () {
-  var newElement = document.createElement("p");
-  newElement.textContent = "This is a new paragraph.";
-  textElement.appendChild(newElement);
-});
+// Store data in Session Storage
+function storeSessionData() {
+  var theme = document.getElementById("sessionDataInput").value;
+  sessionStorage.setItem("theme", theme);
+  alert("Data stored in Session Storage: theme=" + theme);
+}
 
-// Remove the paragraph element
-removeElementButton.addEventListener("click", function () {
-  var elementToRemove = document.querySelector("p");
-  if (elementToRemove && elementToRemove.parentElement) {
-    elementToRemove.parentElement.removeChild(elementToRemove);
-  }
-});
+// Retrieve data from Session Storage
+function retrieveSessionData() {
+  var theme = sessionStorage.getItem("theme");
+  alert("Retrieved data from Session Storage: theme=" + theme);
+}
 
-// Change the image source attribute
-imgElement.addEventListener("click", function () {
-  imgElement.setAttribute("src", "new-image.jpg");
-});
-
-// Remove the link's href attribute
-linkElement.addEventListener("click", function () {
-  linkElement.removeAttribute("href");
-});
+// Clear all data in Session Storage
+function clearSessionStorage() {
+  sessionStorage.clear();
+  alert("Cleared all data in Session Storage");
+}

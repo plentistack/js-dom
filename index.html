@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Demo</title>
     <link rel="stylesheet" href="styles.css">
-    <title>DOM Element Modification Example</title>
 </head>
 <body>
-    <div id="content">
-        <h1>DOM Element Modification Example</h1>
-        <p id="myElement">Initial Text Content</p>
-        <button id="changeTextButton">Change Text</button>
-        <button id="changeHTMLButton">Change HTML</button>
-        <button id="appendElementButton">Append New Element</button>
-        <button id="removeElementButton">Remove Element</button>
-        <img id="myImage" src="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp" alt="Initial Image">
-        <a id="myLink" href="https://plentistack.com/wp-content/uploads/2023/10/DOM-Element-Modification-1024x1024.webp">Example Link</a>
+
+    <div class="container">
+        <h1>Local and Session Storage Demo</h1>
+
+        <!-- Local Storage Section -->
+        <h2>Local Storage</h2>
+        <label for="localDataInput">Enter Username:</label>
+        <input type="text" id="localDataInput" placeholder="JohnDoe">
+        <button onclick="storeLocalData()">Store Data</button>
+        <button onclick="retrieveLocalData()">Retrieve Data</button>
+        <button onclick="removeLocalData()">Remove Data</button>
+
+        <hr>
+
+        <!-- Session Storage Section -->
+        <h2>Session Storage</h2>
+        <label for="sessionDataInput">Enter Theme:</label>
+        <input type="text" id="sessionDataInput" placeholder="dark">
+        <button onclick="storeSessionData()">Store Data</button>
+        <button onclick="retrieveSessionData()">Retrieve Data</button>
+        <button onclick="clearSessionStorage()">Clear Storage</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

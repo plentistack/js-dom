@@ -1,5 +1,5 @@
 {
-  "name": "js-dom-02",
+  "name": "08-js-local-and-session-storage",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codesandbox-app/static-template.git"
+    "url": "https://github.com/plentistack/js-dom/tree/08-js-local-and-session-storage"
   },
   "keywords": [],
   "author": "Ives van Hoorne",
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/codesandbox-app/static-template/issues"
   },
-  "homepage": "https://github.com/codesandbox-app/static-template#readme",
+  "homepage": "https://github.com/plentistack/js-dom/tree/08-js-local-and-session-storage#readme",
   "devDependencies": {
     "serve": "^11.2.0"
   }
